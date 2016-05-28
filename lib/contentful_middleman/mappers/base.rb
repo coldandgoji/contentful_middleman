@@ -72,7 +72,9 @@ module ContentfulMiddleman
 
       def map_entry(entry)
         context = Context.new
-        context.id = entry.id
+        for field in entry.fields
+          context.set(field[0].id2name, field[1])
+        end        
         if !@children[:discovered].include?(entry.id)
           @children[:queue].push({ :context => context, :entry => entry})
           @children[:discovered].push(entry.id)
