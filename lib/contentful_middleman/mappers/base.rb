@@ -89,6 +89,7 @@ module ContentfulMiddleman
       def map_link(link)
         context    = Context.new
         context.id = link.id
+        context.type = 'link'
 
         context
       end
