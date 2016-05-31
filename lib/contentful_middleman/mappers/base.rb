@@ -88,10 +88,9 @@ module ContentfulMiddleman
 
       def map_link(link)
         context    = Context.new
-        for field in link.fields
-          context.set(field[0].id2name, field[1])
-        end      
-
+        context.id = link.id
+        context.type = 'link'
+   
         context
       end
 
